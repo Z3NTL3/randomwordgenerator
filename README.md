@@ -10,7 +10,7 @@ Author: @z3ntl3
 License: GNU
 ```
 ### Install module
-``go get https://github.com/Z3NTL3/randomwordgenerator``
+``go get github.com/Z3NTL3/randomwordgenerator``
 
 # Quickstart 
 Look below for 2 examples
