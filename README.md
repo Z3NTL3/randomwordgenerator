@@ -2,7 +2,7 @@
 ```
 Random Word Generator
 ==========================
-This module is a powerful tool for generating random words by scraping and wrapping the functionality of RandomWordGenerator.com. 
+Wrapper client for RandomWordGenerator.com
 
 It allows easy access to the website's interface, enabling efficient random word generation for various applications.
 
@@ -11,6 +11,13 @@ License: GNU
 ```
 ### Install module
 ``go get github.com/Z3NTL3/randomwordgenerator``
+
+### Features
+- Proxy tunneling
+- Rapid scraping
+- Easy to adapt
+- Extendable
+- Object oriented API
 
 # Quickstart 
 Look below for 2 examples
