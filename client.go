@@ -31,7 +31,7 @@ const (
 
 type (
 	
-	client struct {
+	Client struct {
 		quantity int // determines how many words to generate
 		proxy url.URL // http/https proxy URI
 		ctx context.Context // context 
@@ -49,7 +49,7 @@ Sets the quantity which determines how many words will be generated at once at a
 “quantity“ can not be more than 50.
 
 */ 
-func (c *client) SetQuantity(quantity int) error {
+func (c *Client) SetQuantity(quantity int) error {
 	
 	if quantity > maxQuery || quantity <= 0 {
 		return errors.New(
@@ -64,7 +64,7 @@ func (c *client) SetQuantity(quantity int) error {
 /*
 Gets the current set quantity
 */
-func (c *client) GetQuantity() (quantity int) {
+func (c *Client) GetQuantity() (quantity int) {
 	quantity = c.quantity
 	return
 }
@@ -73,7 +73,7 @@ func (c *client) GetQuantity() (quantity int) {
 /*
 Sets the proxy to use while connecting and gathering data from the script utility hosted on randomwordgenerator.com
 */
-func(c *client) SetProxy(proxy string) error {
+func(c *Client) SetProxy(proxy string) error {
 	proxy = strings.ToLower(proxy)
 	uri, err := url.Parse(proxy); if err != nil {
 		return err
@@ -92,21 +92,21 @@ func(c *client) SetProxy(proxy string) error {
 /*
 Sets the given context to the client, it can be used to modify but that is not recommended
 */
-func (c *client) SetContext(ctx context.Context) {
+func (c *Client) SetContext(ctx context.Context) {
 	c.ctx = ctx
 }
 
 /*
 This method is meant to check if proxy use is active
 */
-func (c *client) UseProxy() bool {
+func (c *Client) UseProxy() bool {
 	return c.useProxy
 }
 
 /*
 Modifies the proxy, if this is called after Initialize it has no effect
 */
-func (c *client) ModifyProxy(proxy string) error {
+func (c *Client) ModifyProxy(proxy string) error {
 	err := c.SetProxy(proxy); if err != nil {
 		return err
 	}
@@ -117,11 +117,11 @@ func (c *client) ModifyProxy(proxy string) error {
 /*
 This function can be used to initialize a new client with a given context
 */
-func WithContext(ctx context.Context) *client {
-	Client := &client{
+func WithContext(ctx context.Context) *Client {
+	client := &Client{
 		ctx: ctx,
 	}
-	return Client
+	return client
 }
 
 /*
@@ -129,16 +129,16 @@ Initializes a new client with zero values and a dummy context
 
 Use ``WithContext`` instead to use your own context
 */
-func NewClient() *client {
-	Client := &client{
+func NewClient() *Client {
+	client := &Client{
 		ctx: context.Background(),
 	}
 
-	return Client
+	return client
 }
 
 // Initialize, must be called before starting fetching words
-func (c *client) Initialize(){
+func (c *Client) Initialize(){
 	httpClient := http.Client{
 		Transport: &http.Transport{
 			TLSClientConfig: &tls.Config{
@@ -161,7 +161,7 @@ func (c *client) Initialize(){
 /*
 This is the main scraper function
 */
-func(c *client) fetchWords() (words , error){
+func(c *Client) fetchWords() (words , error){
 	if !c.initialized {
 		return make([]string,0), errors.New("You should call the initializing method before executing this one")
 	}
@@ -218,7 +218,7 @@ This method can be used to generate random words
 
 If a context with a timeout or cancellation is provided, when the cancellation or timeout occurs, it will immediately cancel and return.
 */
-func (c *client) GenerateWords() (words, error) {
+func (c *Client) GenerateWords() (words, error) {
 
 	completed := make(chan int)
 	var results words
