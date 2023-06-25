@@ -19,7 +19,7 @@ Look below for 2 examples
 package main
 
 import (
-	"Z3NTL3/randomwordgenerator"
+	"github.com/Z3NTL3/randomwordgenerator"
 	"fmt"
 	"log"
 )
@@ -71,7 +71,7 @@ OUTPUTL:
 package main
 
 import (
-	"Z3NTL3/randomwordgenerator"
+	"github.com/Z3NTL3/randomwordgenerator"
 	"context"
 	"fmt"
 	"log"
