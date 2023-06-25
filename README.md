@@ -1,13 +1,13 @@
 # Random Word Generator
 ```
-	Random Word Generator
-	==========================
-	This module is a powerful tool for generating random words by scraping and wrapping the functionality of RandomWordGenerator.com. 
-    
-    It allows easy access to the website's interface, enabling efficient random word generation for various applications.
+Random Word Generator
+==========================
+This module is a powerful tool for generating random words by scraping and wrapping the functionality of RandomWordGenerator.com. 
 
-	Author: @z3ntl3
-	License: GNU
+It allows easy access to the website's interface, enabling efficient random word generation for various applications.
+
+Author: @z3ntl3
+License: GNU
 ```
 ### Install module
 ``go get https://github.com/Z3NTL3/randomwordgenerator``
