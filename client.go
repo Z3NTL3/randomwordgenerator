@@ -72,6 +72,8 @@ func (c *Client) GetQuantity() (quantity int) {
 
 /*
 Sets the proxy to use while connecting and gathering data from the script utility hosted on randomwordgenerator.com
+
+This method needs to be called before the initialize method
 */
 func(c *Client) SetProxy(proxy string) error {
 	proxy = strings.ToLower(proxy)
